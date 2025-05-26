@@ -1,3 +1,36 @@
 import { Routes } from '@angular/router';
+import { DataBindingComponent } from './components/data-binding/data-binding.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { NgClassComponent } from './components/ng-class/ng-class.component';
+import { ControlStatementComponent } from './components/control-statement/control-statement.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'databinding',
+        pathMatch: 'full'
+    },
+
+    {
+        path: 'admin',
+        component:AdminComponent
+    },
+    {
+        path: 'dataBinding',
+        component:DataBindingComponent
+    },
+    {
+        path: 'ng-class',
+        component:NgClassComponent
+    },
+    {
+        path: 'control-flow',
+        component:ControlStatementComponent
+    }
+
+
+
+
+
+
+];

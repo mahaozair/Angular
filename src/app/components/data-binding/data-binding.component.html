@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-6">
+        1.interpolation
+        <p>
+            firstName=>{{firstName}}
+        </p>
+        <div class="">
+            {{rollNo}}
+        </div>
+        <span>
+            {{isActive}}
+        </span>
+    </div>
+    <div class="col-6">
+        property binding
+    <input type="text" [value]="firstName" name="" id="">
+    <br>
+    <input type="text" placeholder="Enter first name" id="">
+    <br>
+    <div [class]="myClassName" style="height: 100px; width: 100px;"> </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showwelcomemessage()">Show welcome text</button>
+    </div>
+    <div class="col-3">
+        <select (change)="oncitychanges()">
+            <option value="Karachi">Karachi</option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Multan">Multan</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [(ngModel)]="firstName">
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="selectedCity">
+            <option value="Karachi">Karachi</option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Multan">Multan</option>
+        </select>
+        -{{selectedCity}}
+    </div>
+</div>

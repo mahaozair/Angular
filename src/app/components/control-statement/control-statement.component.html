@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-3">
+        @if (divVisible==true){
+        <div class="bg-success p-3">
+            Div 1
+        </div>
+    }
+    </div>
+    <div class="col-3">
+        @if (isChecked==true){
+            <div class="bg-primary p-3">
+                is checked
+            </div>
+        } @else{
+            <div class="bg-danger p-3">
+                is not checked
+            </div>
+        }
+    </div>
+    <div class="col-3">
+        @if(dayName=="mon"){
+            <span>Monday</span>
+        } @else if(dayName=="tue"){
+            <span>Tuesday</span>
+        } @else if(dayName=="wed"){
+            <span>Wednesday</span>
+        } @else {
+            <span>
+                enter valid value
+            </span>
+        }
+    </div>
+</div>
+
+<div class="row pt-4">
+    <div class="col-3">
+        <button class="btn btn-success" (click)="visibility(true)">Show</button>
+        <button class="btn btn-danger" (click)="visibility(false)">Hide</button>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isChecked"/>
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="dayName"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <select>
+            @for (item of cityList; track $index) {
+                <option>{{item}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        @for (item of cityList; track $index) {
+            <button class="btn btn-success">{{item}}</button>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Serial no.</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Contact no</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of employeeArr; track $index){
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.city}}</td>
+                        <td>{{item.contactNo}}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
