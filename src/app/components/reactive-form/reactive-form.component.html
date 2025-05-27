@@ -1,0 +1,77 @@
+<div class="container">
+    <form class="row g-3 needs-validation" novalidate (ngSubmit)="onsave()" [formGroup]="userForm">
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">First name</label>
+          <input formControlName="fname" type="text" class="form-control" id="validationCustom01" value="Mark" required>
+          <div class="text-danger">
+            @if(userForm.controls['fname'].errors?.['required'] && userForm.controls['fname'].dirty && userForm.controls['fname'].touched){
+                <span> this is required</span>
+            }
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Last name</label>
+          <input formControlName="lname" type="text" class="form-control" id="validationCustom02" value="Otto" required>
+          <div class="text-danger">
+            @if(userForm.controls['lname'].dirty && userForm.controls['lname'].touched && userForm.controls['lname'].errors?.['required']){
+                <span> this is required</span>
+            }
+            @if(userForm.controls['lname'].errors?.['minlength'] && userForm.controls['lname'].touched){
+                <span>min length is 4</span>
+            }
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustomUsername" class="form-label">Username</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+            <input formControlName="username" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+            <div class="text-danger">
+                @if(userForm.controls['username'].errors?.['pattern'] && userForm.controls['username'].touched){
+                    <span>incorrect pattern</span>
+                }
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">City</label>
+          <input formControlName="city" type="text" class="form-control" id="validationCustom03">
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom04" class="form-label">State</label>
+          <select formControlName="state" class="form-select" id="validationCustom04" >
+            <option selected disabled value="">Choose...</option>
+            <option>Karachi</option>
+            <option>Islamabad</option>
+            <option>Lahore</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom05" class="form-label">Zip</label>
+          <input formControlName="zipcode" type="text" class="form-control" id="validationCustom05" >
+          <div class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input formControlName="isAgreed" class="form-check-input" type="checkbox" value="" id="invalidCheck" >
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit" (click)="onsave()" >Submit form</button>
+        </div>
+      </form>
+</div>

@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-6">
         1.interpolation
         <p>
@@ -48,4 +48,68 @@
         </select>
         -{{selectedCity}}
     </div>
-</div>
+</div> -->
+<div class="container mt-4">
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <h6>1. Interpolation</h6>
+        <label>also a bound variable</label>
+        <p>First Name: <strong>{{ firstName }}</strong></p>
+        <div>Roll No: <strong>{{ rollNo }}</strong></div>
+        <span>Status: <strong>{{ isActive }}</strong></span>
+      </div>
+  
+      <div class="col-md-6">
+        <h6>2. Property Binding</h6>
+        <div class="mb-3">
+          <label>Bound Input:</label>
+          <input type="text" [value]="firstName" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label>Unbound Input:</label>
+          <input type="text" placeholder="Enter first name" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label>Dynamic Class Box:</label>
+          <div [class]="myClassName" style="height: 100px; width: 100px;" class="border"></div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <label>just a button that gives an alert</label>
+        <button class="btn btn-success w-100" (click)="showwelcomemessage()">Show Welcome Text</button>
+        <br>
+        <label>routing through ts</label>
+        <button class="btn btn-dark" (click)="navigatetoadmin()">move back to admin page</button>
+      </div>
+      <div class="col-md-4">
+        <label>Select City:</label>
+        <select class="form-select" (change)="oncitychanges()">
+          <option value="Karachi">Karachi</option>
+          <option value="Islamabad">Islamabad</option>
+          <option value="Lahore">Lahore</option>
+          <option value="Multan">Multan</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <label>Two-way Bound Input:</label>
+        <input type="text" [(ngModel)]="firstName" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label>Two-way Bound Select:</label>
+        <select [(ngModel)]="selectedCity" class="form-select">
+          <option value="Karachi">Karachi</option>
+          <option value="Islamabad">Islamabad</option>
+          <option value="Lahore">Lahore</option>
+          <option value="Multan">Multan</option>
+        </select>
+        <p class="mt-2">Selected City: <strong>{{ selectedCity }}</strong></p>
+      </div>
+    </div>
+  </div>
+  

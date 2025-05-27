@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-8 text-center">
+        <h2>post api integration</h2>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-light" (click)="getallcars()">
+            load cars
+        </button>
+    </div>
+</div>
+<div class="row pt-2">
+    <div class="col-7">
+        <div class="card">
+            <div class="card-header bg-warning">
+                <h5>Car List</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th>Req No</th>
+                            <th>Daily Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for( item of cars;track $index){
+                            <tr>
+                                <td>{{$index +1}}</td>
+                                <td>{{item.brand}}</td>
+                                <td>{{item.model}}</td>
+                                <td>{{item.regNo}}</td>
+                                <td>{{item.dailyRate}}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header bg-warning">
+                <h5>Create a car</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6 mt-2">
+                        <label>Reg No</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Brand</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Model</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Year</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Color</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Daily Rate</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Car Image URL</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <br>
+                    <button class="btn btn-dark mt-2">reset</button>
+                    <br>
+                    <button class="btn btn-success mt-2" >submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

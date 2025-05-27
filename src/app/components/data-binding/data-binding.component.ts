@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-data-binding',
@@ -15,11 +17,15 @@ export class DataBindingComponent {
   myClassName: string = "bg-primary";
   selectedCity: string = "";
   
-  constructor() {
+  constructor(private router: Router) {
+
     console.log(this.firstName);
     this.isActive = false;
     console.log(this.isActive);
-    this.showwelcomemessage();
+    // this.showwelcomemessage();
+  }
+  navigatetoadmin() {
+    this.router.navigateByUrl("/admin");
   }
   showwelcomemessage() {
     alert("Welcome to angular 19 tutorial!");

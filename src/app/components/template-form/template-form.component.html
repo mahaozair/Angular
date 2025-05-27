@@ -1,0 +1,79 @@
+<div class="container">
+    <h5>User Form</h5>
+    <form class="row g-3 needs-validation" novalidate #form="ngForm">
+        <div class="col-md-4">
+        <label >First name<span class="text-danger">*</span></label>
+        <input type="text" required #fname="ngModel" name="firstName" [(ngModel)]="userObj.firstName" class="form-control">
+        <div class="text-danger">
+            @if(fname.errors?.['required'] && fname.dirty && fname.touched){
+                <span> this is required</span>
+            }
+        </div>
+        </div>
+        <div class="col-md-4">
+        <label >Last name<span class="text-danger">*</span></label>
+        <input type="text" required #lname="ngModel" name="lastname" minlength="4" [(ngModel)]="userObj.lastName"class="form-control">
+            <div class="text-danger">
+                @if(lname.dirty && lname.touched && lname.errors?.['required']){
+                        <span> this is required</span>
+                    }
+                @if(lname.errors?.['minlength'] && lname.touched){
+                    <span>min length is 4</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+        <label >Username</label>
+        <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+            <input type="text" pattern="xyz@gmail.com" #username="ngModel" name="userName" class="form-control" [(ngModel)]="userObj.userName">
+            <div class="text-danger">
+                @if(username.errors?.['pattern'] && username.touched){
+                    <span>incorrect pattern</span>
+                }
+            </div>
+            <div class="invalid-feedback">
+            Please choose a username.
+            </div>
+        </div>
+        </div>
+        <div class="col-md-6">
+        <label >City</label>
+        <input type="text" name="city" #city="ngModel" class="form-control" [(ngModel)]="userObj.city">
+        <div class="invalid-feedback">
+            Please provide a valid city.
+        </div>
+        </div>
+        <div class="col-md-3">
+        <label >State</label>
+        <select class="form-select" #selected="ngModel" name="state" [(ngModel)]="userObj.state">
+            <option selected disabled value="">Choose...</option>
+            <option>...</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+        </div>
+        <div class="col-md-3">
+        <label >Zip</label>
+        <input type="text" #zip="ngModel" name="zipCode" class="form-control" [(ngModel)]="userObj.zipCode">
+        <div class="invalid-feedback">
+            Please provide a valid zip.
+        </div>
+        </div>
+        <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" name="isTermsAgreed" type="checkbox" [(ngModel)]="userObj.isTermsAgreed">
+            <label class="form-check-label" for="invalidCheck">
+            Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+            You must agree before submitting.
+            </div>
+        </div>
+        </div>
+        <div class="col-12">
+        <button class="btn btn-primary" [disabled]="form.invalid" type="submit" (click)="onsave()">Submit form</button>
+        </div>
+    </form>
+</div>
