@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr> @for (item of userList.value(); track $index){
+                    <td>{{item.name}}-{{item.username}}</td>
+                }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <button class="btn btn-success" (click)="reload()">Reload Data</button>
+    </div>
+    <label> shows reloading state: </label>
+    <br>
+    <div class="col-3" >
+        {{userList.isLoading()}}
+    </div>
+    <label> shows value precense: </label>
+    <br>
+    <div class="col-3">
+        {{userList.hasValue()}}
+    </div>
+    <br>
+</div>
+

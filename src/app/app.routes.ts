@@ -10,6 +10,9 @@ import { TemplateFormComponent } from './components/template-form/template-form.
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { GetApiComponent } from './components/get-api/get-api.component';
 import { PostApiComponent } from './components/post-api/post-api.component';
+import { ResourceApiComponent } from './components/resource-api/resource-api.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
 
 export const routes: Routes = [
     {
@@ -20,46 +23,58 @@ export const routes: Routes = [
 
     {
         path: 'admin',
-        component:AdminComponent
+        component: AdminComponent
     },
     {
         path: 'dataBinding',
-        component:DataBindingComponent
+        component: DataBindingComponent
     },
     {
         path: 'ng-class',
-        component:NgClassComponent
+        component: NgClassComponent
     },
     {
         path: 'control-statement',
-        component:ControlStatementComponent
+        component: ControlStatementComponent
     },
     {
         path: 'signal',
-        component:SignalComponent
+        component: SignalComponent
     },
     {
         path: 'linked-signal',
-        component:LinkedSignalComponent
+        component: LinkedSignalComponent
     },
     {
         path: 'ng-style',
-        component:NgStyleComponent
+        component: NgStyleComponent
     },
     {
         path: 'template-form',
-        component:TemplateFormComponent
+        component: TemplateFormComponent
     },
     {
         path: 'reactive-form',
-        component:ReactiveFormComponent
+        component: ReactiveFormComponent
     },
     {
         path: 'get-api',
-        component:GetApiComponent
+        component: GetApiComponent
     },
     {
         path: 'post-api',
-        component:PostApiComponent
+        component: PostApiComponent
+    },
+    {
+        path: 'resource-api',
+        component: ResourceApiComponent
+    },
+    {
+        path: 'customer',
+        component: CustomerComponent
+    },
+    {
+        path: 'lifecycle',
+        component: LifeCycleComponent
     }
 ];
