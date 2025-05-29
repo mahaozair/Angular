@@ -8,9 +8,14 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './post-api.component.html',
   styleUrl: './post-api.component.css'
 })
-export class PostApiComponent implements OnInit,AfterViewInit{
+export class PostApiComponent implements OnInit, AfterViewInit{
+  http = inject(HttpClient);
+  firstName: string;
+  constructor() {
+    this.firstName='';
+  }
   ngAfterViewInit(): void {
-    console.log("ngAfterViewInit"),
+    console.log("after view init"),
       performance.now();
   }
   cars: any[] = [];
@@ -24,7 +29,6 @@ export class PostApiComponent implements OnInit,AfterViewInit{
     "carImage": "",
     "regNo": ""
   }
-  http = inject(HttpClient);
 
   getallcars() {
     // this.http.get("https://freeapi.miniprojectideas.com/api/CarRentalApp/GetCars").subscribe((res:any) => {

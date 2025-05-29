@@ -1,15 +1,15 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-3">
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-6">
         <label>press to populate table</label>
+        <br>
         <button class="btn btn-dark" (click)="getusers()">
             Load User
         </button>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-6">
-        <table class="table table-bordered">
+        <table class="table table-bordered mt-3">
             <thead>
                 <tr>
                     <th>Sr No</th>
@@ -34,14 +34,14 @@
             </tbody>
         </table>
     </div>
-    <div class="col-12">
+    <div class="col-4 offset-2">
         <label>press to populate drop down</label>
         <br>
-        <button class="btn btn-dark" (click)="getproducts()">
-            Load Products
-        </button>
+            <button class="btn btn-dark" (click)="getproducts()">
+                Load Products
+            </button>
         <br>
-        <select>
+        <select class="mt-3">
             @for(item of productList; track $index){
                 <option [value]="item.product_id">
                     {{item.name}}

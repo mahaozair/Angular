@@ -2,16 +2,11 @@
     <div class="col-8 text-center">
         <h2>post api integration</h2>
     </div>
-    <div class="col-4">
-        <button class="btn btn-light" (click)="getallcars()">
-            load cars
-        </button>
-    </div>
 </div>
 <div class="row pt-2">
     <div class="col-7">
         <div class="card">
-            <div class="card-header bg-warning">
+            <div class="card-header bg-dark text-white">
                 <h5>Car List</h5>
             </div>
             <div class="card-body">
@@ -34,7 +29,7 @@
                                 <td>{{item.model}}</td>
                                 <td>{{item.regNo}}</td>
                                 <td>{{item.dailyRate}}</td>
-                                <td><button class="btn btn-warning" (click)="update(item)">Edit</button>
+                                <td><button class="btn btn-dark text-white" (click)="update(item)">Edit</button>
                                     <button class="btn btn-danger mt-2" (click)="onDelete(item.carId)">Delete</button></td>
                             </tr>
                         }
@@ -45,7 +40,7 @@
     </div>
     <div class="col-5">
         <div class="card">
-            <div class="card-header bg-warning">
+            <div class="card-header bg-dark text-white">
                 <h5>Create a car</h5>
             </div>
             <div class="card-body">
@@ -79,12 +74,14 @@
                         <input type="text"  [(ngModel)]="carObj.carImage" class="form-control" placeholder="">
                     </div>
                     <br>
-                    <button class="btn btn-dark mt-2">reset</button>
-                    <br>
+                    <button class="btn btn-dark text-white mt-2">reset</button>
                     @if (carObj.carId==0){
                     <button class="btn btn-success mt-2" (click)="onsave()">submit</button>}
                     @else {
-                    <button class="btn btn-warning mt-2" (click)="onUpdate()">update</button>}
+                    <button class="btn btn-dark text-white mt-2" (click)="onUpdate()">update</button>}
+                    <button class="btn text-white mt-2" style="background-color: darkslategray;" (click)="getallcars()">
+                        load cars
+                    </button>
                 </div>
             </div>
         </div>
