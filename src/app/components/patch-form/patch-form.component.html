@@ -133,6 +133,23 @@
         Passwords do not match
       </div>
     </div>
+    <div class="col-md-4">
+        <label class="form-label">Start Date<span class="text-danger">*</span></label>
+        <input type="date" class="form-control" required name="startDate" formControlName="startDate">
+        <div class="text-danger" *ngIf="studentForm.controls['startDate'].errors?.['required'] && studentForm.controls['startDate'].touched">
+            <span>Start date required</span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">End date<span class="text-danger">*</span></label>
+        <input type="date" class="form-control" required name="endDate" formControlName="endDate">
+        <div class="text-danger" *ngIf="studentForm.controls['endDate'].errors?.['required'] && studentForm.controls['endDate'].touched">
+            <span>End date required</span>
+        </div>
+        <div class="text-danger" *ngIf="studentForm.errors?.['dateChecker']">
+            End date must be greater than start date
+        </div>
+    </div>
     <div class="col-12">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" required name="acceptedTerms" formControlName="acceptedTerms">

@@ -17,11 +17,14 @@ export class UniversityFormComponent {
     middleName: new FormControl(""),
     lastName: new FormControl("", [Validators.required, Validators.minLength(4)]),
     dateOfBirth: new FormControl("", [Validators.required]),
+    startDate: new FormControl("", [Validators.required]),
+    endDate:new FormControl("",[Validators.required]),
     gender: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
     phone: new FormControl("", [Validators.required, Validators.maxLength(11),Validators.pattern('^[0-9]*$')]),
     nationalId: new FormControl("", [Validators.required]),
     profilePhoto: new FormControl(null),
+    profilePhotoPreview: new FormControl(null),//new
     permanentAddress: new FormControl(""),
     currentAddress: new FormControl("", [Validators.required]),
     city: new FormControl("", [Validators.required]),
@@ -33,7 +36,7 @@ export class UniversityFormComponent {
     hasDisability: new FormControl(false),
     acceptedTerms: new FormControl(false),
     confirmedInformation: new FormControl(false)
-  },{ validators: this.passwordMatchValidator })
+  },{ validators:[this.passwordMatchValidator , this.dateChecker]})
   
   constructor(private router: Router, private formService: FormServiceService) {
   }
@@ -52,6 +55,13 @@ export class UniversityFormComponent {
     const confirmPassword = group.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { passwordMismatch: true };
   }
+  dateChecker(group:AbstractControl):ValidationErrors | null {
+    const sdate = group.get('startDate')?.value;
+    const edate = group.get('endDate')?.value;if (!sdate || !edate) return null;
+    const start = new Date(sdate);
+    const end = new Date(edate);
+    return start <= end ? null : { dateChecker: true };
+  }
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length) {
@@ -61,6 +71,7 @@ export class UniversityFormComponent {
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result;
+        this.studentForm.patchValue({ profilePhotoPreview: reader.result });//new
       };
       reader.readAsDataURL(file);
     }
