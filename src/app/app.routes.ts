@@ -13,6 +13,8 @@ import { PostApiComponent } from './components/post-api/post-api.component';
 import { ResourceApiComponent } from './components/resource-api/resource-api.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
+import { UniversityFormComponent } from './components/university-form/university-form.component';
+import { PatchFormComponent } from './components/patch-form/patch-form.component';
 
 export const routes: Routes = [
     {
@@ -76,5 +78,14 @@ export const routes: Routes = [
     {
         path: 'lifecycle',
         component: LifeCycleComponent
+    },
+    {
+        path: 'university-form',
+        component:UniversityFormComponent
+    },
+    {
+        path: 'patch-form',
+        component:PatchFormComponent
     }
+
 ];
