@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 @Component({
   selector: 'app-post-api',
-  imports: [FormsModule],
+  imports: [FormsModule,
+    MatTableModule,
+    MatPaginatorModule,],
   templateUrl: './post-api.component.html',
   styleUrl: './post-api.component.css'
 })
@@ -29,13 +32,16 @@ export class PostApiComponent implements OnInit, AfterViewInit{
     "carImage": "",
     "regNo": ""
   }
-
+  dataSrc = new MatTableDataSource<any>();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   getallcars() {
     // this.http.get("https://freeapi.miniprojectideas.com/api/CarRentalApp/GetCars").subscribe((res:any) => {
     //   this.cars = res.data;
     // })
     this.http.get('/api/CarRentalApp/GetCars').subscribe((res:any)=>{
-      this.cars = res.data;
+      // this.cars = res.data;
+      this.dataSrc = new MatTableDataSource(res.data);
+      this.dataSrc.paginator = this.paginator;
     })
   }
   ngOnInit(): void {

@@ -10,7 +10,7 @@
                 <h5>Car List</h5>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <!-- <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Sr.No</th>
@@ -34,7 +34,41 @@
                             </tr>
                         }
                     </tbody>
-                </table>
+                </table> -->
+                <table mat-table [dataSource]="dataSrc" class="mat-elevation-z8">
+                    <ng-container matColumnDef="srno">
+                      <th mat-header-cell *matHeaderCellDef> Sr.No </th>
+                      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="brand">
+                      <th mat-header-cell *matHeaderCellDef> Brand </th>
+                      <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="model">
+                      <th mat-header-cell *matHeaderCellDef> Model </th>
+                      <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="regNo">
+                      <th mat-header-cell *matHeaderCellDef> Reg No </th>
+                      <td mat-cell *matCellDef="let element"> {{element.regNo}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="dailyRate">
+                      <th mat-header-cell *matHeaderCellDef> Daily Rate </th>
+                      <td mat-cell *matCellDef="let element"> {{element.dailyRate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="actions">
+                      <th mat-header-cell *matHeaderCellDef> Actions </th>
+                      <td mat-cell *matCellDef="let element">
+                        <button class="btn btn-dark text-white mt-2" (click)="update(element)">Edit</button>
+                        <br>
+                        <button class="btn btn-danger mt-2" (click)="onDelete(element.carId)">Delete</button>
+                      </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="['srno', 'brand', 'model', 'regNo', 'dailyRate', 'actions']"></tr>
+                    <tr mat-row *matRowDef="let row; columns: ['srno', 'brand', 'model', 'regNo', 'dailyRate', 'actions'];"></tr>
+                  </table>
+                  
+                  <mat-paginator class="text-center"[pageSizeOptions]="[1,2,3,4,5,6,7,8,9,10]" showFirstLastButtons></mat-paginator>                  
             </div>
         </div>
     </div>
