@@ -3,7 +3,7 @@
     <div class="col-md-4">
       <label class="form-label">First Name <span class="text-danger">*</span></label>
       <input type="text" class="form-control" required name="firstName" formControlName="firstName">
-      <div class="text-danger" *ngIf="studentForm.controls['firstName'].errors?.['required'] && studentForm.controls['firstName'].dirty && studentForm.controls['firstName'].touched">
+      <div class="text-danger" *ngIf="studentForm.controls['firstName'].errors?.['required'] && studentForm.controls['firstName'].touched">
         <span>First Name is required</span>
       </div>
     </div>
@@ -22,7 +22,7 @@
     <div class="col-md-4">
       <label class="form-label">Date of Birth<span class="text-danger">*</span></label>
       <input type="date" class="form-control" required name="dateOfBirth" formControlName="dateOfBirth">
-      <div class="text-danger" *ngIf="studentForm.controls['dateOfBirth'].errors?.['required'] && studentForm.controls['dateOfBirth'].dirty && studentForm.controls['dateOfBirth'].touched">
+      <div class="text-danger" *ngIf="studentForm.controls['dateOfBirth'].errors?.['required']&& studentForm.controls['dateOfBirth'].touched">
         <span>Date of Birth is required</span>
       </div>
     </div>
@@ -41,8 +41,8 @@
     <div class="col-md-4">
       <label class="form-label">Email<span class="text-danger">*</span></label>
       <input type="email" class="form-control" required name="email" formControlName="email">
-      <div class="text-danger" *ngIf="studentForm.controls['email'].errors && studentForm.controls['email'].touched">
-        <span *ngIf="studentForm.controls['email'].errors?.['required']">Email is required</span>
+      <div class="text-danger" *ngIf="studentForm.controls['email'].errors">
+        <span *ngIf="studentForm.controls['email'].errors?.['required']&& studentForm.controls['email'].touched">Email is required</span>
         <span *ngIf="studentForm.controls['email'].errors?.['pattern']">Enter a valid email address</span>
       </div>
     </div>
@@ -50,7 +50,7 @@
       <label class="form-label">Phone<span class="text-danger">*</span></label>
       <input type="tel"  maxlength="11" class="form-control" required name="phone" formControlName="phone">
       <div class="text-danger" *ngIf="studentForm.controls['phone'].errors && studentForm.controls['phone'].touched">
-        <span *ngIf="studentForm.controls['phone'].errors?.['required'] && studentForm.controls['phone'].dirty && studentForm.controls['phone'].touched">Phone number is required</span>
+        <span *ngIf="studentForm.controls['phone'].errors?.['required']">Phone number is required</span>
         <span *ngIf="studentForm.controls['phone'].errors?.['maxlength']">Can enter 11 digits atmost</span>
         <span *ngIf="studentForm.controls['phone'].errors?.['pattern']">Only numeric character allowed</span>
       </div>
@@ -65,7 +65,11 @@
     <div class="mb-3">
         <label for="profilePhoto" class="form-label">Upload Profile Photo</label>
         <input type="file" id="profilePhoto" accept="image/*" (change)="onFileChange($event)" class="form-control">
-      </div>
+    </div>
+    <div *ngIf="imagePreview">
+        <p><strong>Preview:</strong></p>
+        <img [src]="imagePreview" alt="Profile Preview" class="img-thumbnail" style="max-width: 200px;">
+    </div>
     <h4>Residential Details</h4>
     <div class="col-md-6">
       <label class="form-label">Current Address<span class="text-danger">*</span></label>

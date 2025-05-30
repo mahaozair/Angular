@@ -1,56 +1,27 @@
+<div class="d-flex" style="height: 100vh; overflow: hidden;">
 
-  <div class="d-flex">
-    <nav class="bg-dark text-white vh-100 p-3" style="width: 200px;">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="admin">Admin</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="dataBinding">Data Binding</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="linked-signal">Linked Signal</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="ng-class">ng-class</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="ng-style">ng-style</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="signal">Signal</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" routerLink="template-form">Template Form</a>
-          </li>
-        <li class="nav-item">
-        <a class="nav-link text-white" routerLink="reactive-form">Reactive Form</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" routerLink="get-api">get api</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" routerLink="post-api">post api</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="resource-api">resource api</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link text-white" routerLink="customer">Customer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="lifecycle">Life Cycle</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="university-form">University Form</a>
-        </li>
-      </ul>
-    </nav>
-  
-    <div class="flex-grow-1 p-4">
-      <router-outlet></router-outlet>
+  <div class="bg-dark text-white p-3" style="width: 220px; height: 100vh; overflow-y: auto; position: fixed;">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link text-white" routerLink="admin">Admin</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="dataBinding">Data Binding</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="linked-signal">Linked Signal</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="ng-class">ng-class</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="ng-style">ng-style</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="signal">Signal</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="template-form">Template Form</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="reactive-form">Reactive Form</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="get-api">get api</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="post-api">post api</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="resource-api">resource api</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="customer">Customer</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="lifecycle">Life Cycle</a></li>
+      <li class="nav-item"><a class="nav-link text-white" routerLink="university-form">University Form</a></li>
+    </ul>
   </div>
-  
-<router-outlet>
 
-</router-outlet>
+  <div class="flex-grow-1 p-4" style="margin-left: 220px; overflow-y: auto; height: 100vh;">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+

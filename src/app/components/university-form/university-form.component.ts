@@ -11,6 +11,7 @@ import { FormServiceService } from '../../services/form-service.service';
   styleUrl: './university-form.component.css'
 })
 export class UniversityFormComponent {
+  imagePreview: string | ArrayBuffer | null = null;
   studentForm: FormGroup = new FormGroup({
     firstName: new FormControl("", [Validators.required]),
     middleName: new FormControl(""),
@@ -35,12 +36,13 @@ export class UniversityFormComponent {
   },{ validators: this.passwordMatchValidator })
   
   constructor(private router: Router, private formService: FormServiceService) {
-    // this.studentForm.controls['state'].disable();
   }
   onSubmit() {
     if (this.studentForm.valid) {
-      this.formService.setData(this.studentForm.value);
-      this.router.navigateByUrl('/patch-form');
+      setTimeout(() => {
+        this.formService.setData(this.studentForm.value);
+        this.router.navigateByUrl('/patch-form');
+      }, 2000);
     } else {
       this.studentForm.markAllAsTouched();
     }
@@ -55,6 +57,13 @@ export class UniversityFormComponent {
     if (input.files && input.files.length) {
       const file = input.files[0];
       this.studentForm.patchValue({ profilePhoto: file });
+      this.studentForm.get('profilePhoto')?.updateValueAndValidity();
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result;
+      };
+      reader.readAsDataURL(file);
     }
   }
+  
 }
